@@ -1,11 +1,12 @@
+# based on PLD Linux spec git://git.pld-linux.org/packages/libical.git
 Summary:	libical library
 Name:		libical
-Version:	0.48
+Version:	1.0
 Release:	1
 License:	MPL 1.1 or LGPL v2.1
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/freeassociation/%{name}-%{version}.tar.gz
-# Source0-md5:	e549f434d5fbf9cd156c60ed4943618f
+# Source0-md5:	4438c31d00ec434f02867a267a92f8a1
 Patch0:		%{name}-as_needed.patch
 Patch1:		%{name}-cxx.patch
 URL:		http://freeassociation.sourceforge.net/
@@ -68,6 +69,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
